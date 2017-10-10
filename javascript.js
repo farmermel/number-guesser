@@ -78,7 +78,20 @@ userInput.addEventListener('keydown', function() {
 
 clearButton.addEventListener('click', function() {
   clearButton.setAttribute('disabled', 'true');
+  resetButton.setAttribute('disabled', 'true');
   userInput.value = '';
 });
 
 //disable and reenable the reset button
+
+var resetButton = document.querySelector('#reset-button');
+
+userInput.addEventListener('keydown', function() {
+  resetButton.removeAttribute('disabled');
+});
+
+resetButton.addEventListener('click', function() {
+  resetButton.setAttribute('disabled', 'true');
+  clearButton.setAttribute('disabled', 'true');
+  userInput.value = '';
+})
