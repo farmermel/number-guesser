@@ -36,12 +36,8 @@ selectButton.addEventListener('click', areTheyRight);
 
 function areTheyRight() {
   var userGuess = parseInt(userInput.value);
-  console.log(typeof(userGuess));
-  // if (typeof(userGuess) !== 'number') {
-  //   console.log('guess was not a number');
-  //   gameFeedback.innerText = "Nice try, enter a real number.";
-  // } else 
-  // when I have the above as the first if statement it always runs as though the value of input is a number, even though it isn't! Not sure why
+  console.log(userGuess);
+
   if (userGuess === randomNum) {
     console.log('guess was right');
     gameFeedback.innerText = "BOOM!";
@@ -53,7 +49,7 @@ function areTheyRight() {
   } else if (userGuess > randomNum) {
     console.log('guess is too high');
     gameFeedback.innerText = "You're too high!";
-  } else{ gameFeedback.innerText = "Nice try, enter a real number.";
+  } else { gameFeedback.innerText = "Nice try, enter a real number.";
   }
 };
 
