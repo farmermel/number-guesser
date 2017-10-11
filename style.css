@@ -12,8 +12,12 @@ header {
   margin: 0;
 }
 
-p { 
+p h2 { 
   color: #404041; 
+}
+
+span {
+  color: #ED458B;
 }
 
 main {
@@ -69,6 +73,29 @@ p.number-guessed {
   height: 40px;
 }
 
+#enter-guess {
+  display: block;
+  margin: auto;
+}
+
+#range-button {
+  width: 118px;
+  height: 40px;
+  font-size: 100%;
+  border: 0px;
+}
+
+.navigation {
+  display: inline-block;
+  position: absolute;
+  right: 1190px;
+  background-color: #D0D2D3;
+  height: 200%;
+  top: 152px;
+  color: #ED458B;
+  width: 250px;
+}
+
 .pink-text {
   color: #ED458B;
   font-weight: 700;
@@ -77,9 +104,4 @@ p.number-guessed {
 
 .bold-pink-text {
   font-weight: 900;
-}
-
-#enter-guess {
-  display: block;
-  margin: auto;
 }

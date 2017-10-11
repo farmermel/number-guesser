@@ -14,9 +14,45 @@ var numberGuessed= document.querySelector('p.number-guessed');
 var selectButton = document.querySelector('#submit');
 var userInput = document.getElementById('enter-guess');
 var gameFeedback = document.querySelector('.feedback');
+var enterMinField = document.querySelector('#set-minimum');
+var enterMaxField = document.querySelector('#set-maximum');
+var setRangeButton = document.querySelector('#range-button');
+var changePrintedRange = document.querySelector('.printed-range');
+
+var minimum = 0;
+var maximum = 100;
 
 
-selectButton.addEventListener('click', submit);
+selectButton.addEventListener('click', function() {
+  submit(event);
+  areTheyRight()
+
+});
+
+var randomNum = generateCorrectAnswer();
+
+function generateCorrectAnswer() {
+  minimum = Math.ceil(minimum);
+  maximum = Math.floor(maximum);
+  randomNum = Math.floor(Math.random() * (maximum - minimum)) + minimum;
+  console.log(randomNum);
+};
+
+
+
+function changePrintedRangeText(minimum, maximum) {
+  changePrintedRange.innerHTML = "Enter a number between <span>" + minimum + "</span> and <span>" + maximum + "</span>";
+  console.log('Hi I change the printed range!')
+}
+
+setRangeButton.addEventListener('click', function() {
+  event.preventDefault();
+  minimum = enterMinField.value;
+  maximum = enterMaxField.value; 
+  generateCorrectAnswer(minimum, maximum);
+  changePrintedRangeText(minimum, maximum);
+});
+
 
 function submit(event) {
   event.preventDefault();
@@ -24,27 +60,17 @@ function submit(event) {
   numberGuessed.innerText = userInput.value;
 };
 
-function generateCorrectAnswer() {
-  var correctAnswer = Math.floor(Math.random() * 100 + 1 );
-  console.log(correctAnswer);
-  return correctAnswer;
-};
-
-var randomNum = generateCorrectAnswer();
-
-selectButton.addEventListener('click', areTheyRight);
-
 function areTheyRight() {
   var userGuess = parseInt(userInput.value);
-  console.log(userGuess);
 
   if (userGuess === randomNum) {
     console.log('guess was right');
     gameFeedback.innerText = "BOOM!";
+    // winAdjust();
   } else if (userGuess < randomNum) {
     console.log('guess is too low');
     gameFeedback.innerText = "You're too low!";
-  } else if (userGuess > 100) {
+  } else if (userGuess > maximum || userGuess < minimum) {
     gameFeedback.innerText = "Enter a number in range!";
   } else if (userGuess > randomNum) {
     console.log('guess is too high');
@@ -52,6 +78,11 @@ function areTheyRight() {
   } else { gameFeedback.innerText = "Nice try, enter a real number.";
   }
 };
+
+// function winAdjust(minimum, maximum) {
+//   minimum -= 10;
+//   maximum += 10;
+// }
 
 var clearButton = document.querySelector('.clear-button');
 
@@ -76,6 +107,7 @@ clearButton.addEventListener('click', function() {
   clearButton.setAttribute('disabled', 'true');
   resetButton.setAttribute('disabled', 'true');
   userInput.value = '';
+  numberGuessed.innerText = "* ; *"
 });
 
 //disable and reenable the reset button
@@ -90,4 +122,9 @@ resetButton.addEventListener('click', function() {
   resetButton.setAttribute('disabled', 'true');
   clearButton.setAttribute('disabled', 'true');
   userInput.value = '';
-})
+  numberGuessed.innerText = "* ; *"
+});
+
+//Set range functions
+
+

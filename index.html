@@ -10,18 +10,24 @@
     <h1><b class="pink-text bold-pink-text">Number</b> <span class="white-text">Guesser</span></h1>
   </header>
   <main>
-<!--     <navigation > 
+    <navigation class="navigation"> 
       <h1> Set Range </h1>
-      <input id="set-maximum" placeholder="Enter a Maximum">
-    </navigation> -->
-    <form>
+      <form>
+        <input id="set-minimum" placeholder="Enter a Minimum">
+        <input id="set-maximum" placeholder="Enter a Maximum">
+        <button id="range-button">Set Range
+        </button>
+      </form>
+    </navigation>
+    <form class="form">
       <label for="enter-guess">
-        <input id="enter-guess" type="text" placeholder="Enter a number between 1-100">
+        <h2 class="printed-range">Enter a number between <span>1</span> and <span>100</span></h2>
+        <input id="enter-guess" type="text" placeholder="Enter a number">
       </label>
       <button id="submit" type="submit" name="guess">Guess</button>
       <button type="reset" name="clear" class="clear-button" disabled="true">Clear</button>
       <p>Your last guess was</p>
-      <p class="pink-text number-guessed">0</p>
+      <p class="pink-text number-guessed">-</p>
       <p class="feedback">You haven't guessed yet!</p>
 
       <button id="reset-button" type="clear" name="reset" disabled="true">Reset</button>
