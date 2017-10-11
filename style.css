@@ -32,11 +32,15 @@ button {
   color: #FFFFFF;
   border: solid;
   background-color: #929497;
-  border-radius: 25px;
+  borrder-radius: 25px;
   width: 245px;
   height: 50px;
   margin: 20px 5px 20px;
   font-size: 160%;
+}
+img {
+  height:230px;
+  display: none;
 }
 
 button:hover {
