@@ -65,14 +65,14 @@ function changePrintedRangeText(minimum, maximum) {
 
 function submit(event) {
   event.preventDefault();
-  // if (numberGuessed === 42 && randomNum === 42) {
-  // unHideMarvin();
-  // console.log('unhiding marvin');
-  // } else {
-  console.log('function submit is running');
-  numberGuessed.innerText = userInput.value;
-  console.log(minimum);
-  // }
+  if (numberGuessed === 42 && randomNum === 42) {
+  unHideMarvin();
+  console.log('unhiding marvin');
+  } else { numberGuessed.innerText = userInput.value;
+  // console.log('function submit is running');
+  // numberGuessed.innerText = userInput.value;
+  // console.log(minimum);
+  }
 };
 
 var rangeArray = [minimum, maximum];
@@ -153,6 +153,8 @@ userInput.addEventListener('keydown', function() {
 resetButton.addEventListener('click', function() {
   resetButton.setAttribute('disabled', 'true');
   clearButton.setAttribute('disabled', 'true');
+  numberGuessed.style.display = 'block';
+  hiddenMarvinImg.style.display = 'none'
   userInput.value = '';
   numberGuessed.innerText = "-"
   generateCorrectAnswer()
@@ -161,6 +163,7 @@ resetButton.addEventListener('click', function() {
 
 function unHideMarvin() {
    hiddenMarvinImg.style.display = 'block';
+   numberGuessed.style.display = 'none';
   // hiddenMarvinImg.style.removeProperty('display');
   // console.log(hiddenMarvinImg.hasAttribute('hidden'));
   // hiddenMarvinImg.removeAttribute('hidden');

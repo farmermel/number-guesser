@@ -41,9 +41,10 @@ button {
 img {
   height:230px;
   display: none;
-  position: absolute;
+  margin: auto;
+/*  position: absolute;
   left: 610px;
-  top: 425px;
+  top: 390px;*/
 }
 
 button:hover {
@@ -75,6 +76,16 @@ p.number-guessed {
   font-weight: 200;
 }
 
+.nav-title {
+  font-size: 325%;
+}
+
+#set-minimum, #set-maximum {
+  height: 27px;
+  padding: 2px;
+  font-size: 16px;
+}
+
 #reset-button {
   width: 500px;
   height: 40px;
@@ -95,18 +106,26 @@ p.number-guessed {
 .navigation {
   display: inline-block;
   position: absolute;
-  right: 1190px;
+  left: 0px;
   background-color: #D0D2D3;
-  height: 200%;
+  height: 150%;
   top: 152px;
   color: #ED458B;
-  width: 250px;
+  width: 20%;
 }
 
 .pink-text {
   color: #ED458B;
   font-weight: 700;
   font-size: 75px;
+}
+
+.feedback {
+  margin: 0px;
+}
+
+.feedback2{
+  margin: 0px;
 }
 
 .bold-pink-text {
