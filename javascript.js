@@ -38,8 +38,6 @@ function generateCorrectAnswer() {
   console.log(randomNum);
 };
 
-
-
 function changePrintedRangeText(minimum, maximum) {
   changePrintedRange.innerHTML = "Enter a number between <span>" + minimum + "</span> and <span>" + maximum + "</span>";
   console.log('Hi I change the printed range!')
@@ -67,11 +65,11 @@ function areTheyRight() {
     console.log('guess was right');
     gameFeedback.innerText = "BOOM!";
     // winAdjust();
+  } else if (userGuess > maximum || userGuess < minimum) {
+    gameFeedback.innerText = "Enter a number in range!";
   } else if (userGuess < randomNum) {
     console.log('guess is too low');
     gameFeedback.innerText = "You're too low!";
-  } else if (userGuess > maximum || userGuess < minimum) {
-    gameFeedback.innerText = "Enter a number in range!";
   } else if (userGuess > randomNum) {
     console.log('guess is too high');
     gameFeedback.innerText = "You're too high!";
@@ -97,6 +95,7 @@ var clearButton = document.querySelector('.clear-button');
 //working turn clear button back on
 
 //disable and reenable the clear button
+
 userInput.addEventListener('keydown', function() {
   clearButton.removeAttribute('disabled');
 
@@ -123,8 +122,7 @@ resetButton.addEventListener('click', function() {
   clearButton.setAttribute('disabled', 'true');
   userInput.value = '';
   numberGuessed.innerText = "* ; *"
+  generateCorrectAnswer()
 });
-
-//Set range functions
 
 
