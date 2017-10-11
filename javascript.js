@@ -36,6 +36,7 @@ function generateCorrectAnswer() {
   maximum = Math.floor(maximum);
   randomNum = Math.floor(Math.random() * (maximum - minimum)) + minimum;
   console.log(randomNum);
+  return randomNum
 };
 
 function changePrintedRangeText(minimum, maximum) {
@@ -56,15 +57,25 @@ function submit(event) {
   event.preventDefault();
   console.log('function submit is running');
   numberGuessed.innerText = userInput.value;
+  console.log(minimum);
 };
+
+var rangeArray = [minimum, maximum];
+//rangeArray seems like a promising approach. It's making the changes! Now need to make the adjust range function call, and also need to update texts etc. Make sure it's adjust minimum and maximum everywhere!!!
 
 function areTheyRight() {
   var userGuess = parseInt(userInput.value);
-
+  console.log(userGuess);
+  console.log(randomNum);
   if (userGuess === randomNum) {
     console.log('guess was right');
     gameFeedback.innerText = "BOOM!";
-    // winAdjust();
+    winAdjust(minimum, maximum);
+    minimum = rangeArray[0];
+    maximum = rangeArray[1];
+    generateCorrectAnswer();
+    console.log(randomNum);
+    changePrintedRangeText(minimum, maximum)
   } else if (userGuess > maximum || userGuess < minimum) {
     gameFeedback.innerText = "Enter a number in range!";
   } else if (userGuess < randomNum) {
@@ -77,10 +88,14 @@ function areTheyRight() {
   }
 };
 
-// function winAdjust(minimum, maximum) {
-//   minimum -= 10;
-//   maximum += 10;
-// }
+function winAdjust(minimum, maximum) {
+  minimum -= 10;
+  maximum += 10;
+  rangeArray = [minimum, maximum];
+  console.log('winAdjust is being called');
+  console.log(rangeArray[1]);
+  return rangeArray;
+}
 
 var clearButton = document.querySelector('.clear-button');
 
