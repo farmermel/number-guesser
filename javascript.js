@@ -20,6 +20,7 @@ var setRangeButton = document.querySelector('#range-button');
 var changePrintedRange = document.querySelector('.printed-range');
 var hiddenMarvinImg = document.querySelector('img');
 
+
 //other variables
 var minimum = 0;
 var maximum = 100;
@@ -157,8 +158,10 @@ resetButton.addEventListener('click', function() {
   generateCorrectAnswer()
 });
 
+
 function unHideMarvin() {
-  hiddenMarvinImg.style.removeProperty('display');
+   hiddenMarvinImg.style.display = 'block';
+  // hiddenMarvinImg.style.removeProperty('display');
   // console.log(hiddenMarvinImg.hasAttribute('hidden'));
   // hiddenMarvinImg.removeAttribute('hidden');
   // console.log('tried to show Marvin');

@@ -41,6 +41,9 @@ button {
 img {
   height:230px;
   display: none;
+  position: absolute;
+  left: 610px;
+  top: 425px;
 }
 
 button:hover {
